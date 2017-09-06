@@ -1,0 +1,7 @@
+<h1>Films</h1>
+<ul>
+  <li ng-repeat="film in vm.films">
+    <h2 ui-sref="filmsShow({ id: film.id })">{{ film.title }}</h2>
+    <h4>{{ film.user.username }}</h4>
+  </li>
+</ul>

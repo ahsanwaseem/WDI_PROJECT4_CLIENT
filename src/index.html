@@ -1,14 +1,55 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="filmApp">
   <head>
     <meta charset="utf-8">
-    <title>Project 4 Client</title>
+    <title>Movies</title>
     <base href="/" />
     <!-- inject:js -->
     <!-- endinject -->
     <!-- inject:css -->
     <!-- endinject -->
   </head>
-  <body>
+  <body ng-controller="MainCtrl as main">
+    <header>
+      <nav class="navbar navbar-default" >
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <span href="/" class="navbar-brand" ui-sref="homepage" style="color:#000;font-weight:bold;">Movies</span>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <!-- <p class="navbar-text">Welcome, {{ main.user.username }}</p> -->
+              </li>
+              <li ng-show="main.user">
+                <a ui-sref="filmsIndex" style="font-weight:800;color:#000">Films</a>
+              </li>
+              <li ng-show="main.user">
+                <a ui-sref="filmsNew" style="font-weight:800;color:#000">Add a Film</a>
+              </li>
+              <li ng-hide="main.user">
+                <a ui-sref="register" style="font-weight:800;color:#000">Register</a>
+              </li>
+              <li ng-hide="main.user">
+                <a ui-sref="login" style="font-weight:800;color:#000">Login</a>
+              </li>
+              <li ng-show="main.user">
+                <a ng-click="main.logout()" style="font-weight:800;color:#000">Logout</a>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </header>
+    <main class="container" ui-view></main>
   </body>
 </html>

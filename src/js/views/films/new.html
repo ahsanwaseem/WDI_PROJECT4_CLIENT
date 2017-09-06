@@ -1,0 +1,13 @@
+<h1>New Film</h1>
+
+<form ng-submit="vm.addFilm()">
+  <label for="title">Title</label>
+  <input type="text" id="title" ng-model="vm.film.title">
+  <br />
+  <label for="genres">Genres</label>
+  <div ng-repeat="genre in vm.genres">
+    <input type="checkbox" ng-click="vm.selectGenre(genre.id)"> {{ genre.name }}
+  </div>
+
+  <input type="submit">
+</form>
